@@ -1,0 +1,75 @@
+{% extends 'admin/base.html' %}
+
+{% block main %}
+    <div class="layui-fluid">
+        {{ category_form.csrf_token }}
+
+        <div class="layui-row">
+            <div class="layui-col-lg-12">
+                <div style="margin: 20px;">
+                    <form class="layui-form layui-form-pane" id="from-add-category" method="post"
+                          action="/admin/category"
+                          lay-filter="filter-form-add-category">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                        {#                        <div class="layui-form-item">#}
+                        {#                            <label class="layui-form-label">父分类</label>#}
+                        {#                            <div class="layui-input-block">#}
+                        {#                                {{ category_form.parentid }}#}
+                        {#                            </div>#}
+                        {#                        </div>#}
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">名称</label>
+                            <div class="layui-input-block">
+                                {{ category_form.name(class="layui-input",autocomplete="off",placeholder="请输入分类名称") }}
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">别名</label>
+                            <div class="layui-input-block">
+                                {{ category_form.slug(class="layui-input",autocomplete="off",placeholder="请输入分类别名") }}
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">描述</label>
+                            <div class="layui-input-block">
+                                {{ category_form.description(class="layui-input",autocomplete="off",placeholder="请输入分类描述") }}
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button type="submit" class="layui-btn" lay-submit=""
+                                        lay-filter="filter-button-add-category">提交
+                                </button>
+                                <button type="reset" class="layui-btn layui-btn-normal">重置</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    {{ super() }}
+    {#    <script>#}
+    {#        layui.use('form', function () {#}
+    {#            var form = layui.form;#}
+    {##}
+    {#            form.on('submit(filter-button-add-category)', function (data) {#}
+    {#var form_data = form.val('filter-form-add-category');#}
+    {#                console.log("form data:" + data);#}
+    {#                $.ajax({#}
+    {#                    type: 'post',#}
+    {#                    url: '/admin/category',#}
+    {#                    dataType: 'json',#}
+    {#                    data: JSON.stringify(data),#}
+    {#                    success: function (data) {#}
+    {#                        console.log("success:" + data)#}
+    {#                    }#}
+    {#                })#}
+    {#                return false;#}
+    {#            })#}
+    {#        })#}
+    {#    </script>#}
+
+{% endblock %}

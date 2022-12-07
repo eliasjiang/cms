@@ -1,0 +1,467 @@
+@import "animate.css";
+@import "swiper/swiper-bundle.css";
+body {
+    color: #999;
+}
+
+.main_hero {}
+
+.main_index_a,
+.main_index_b {
+    overflow: hidden;
+    position: relative;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 460px;
+}
+
+.swiper-slide {
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    background: #fff;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+@-webkit-keyframes imageAnimation {
+    0% {
+        opacity: 0;
+        -webkit-animation-timing-function: ease-in;
+    }
+    5% {
+        opacity: 1;
+        -webkit-animation-timing-function: ease-out;
+    }
+    17% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes imageAnimation {
+    0% {
+        opacity: 0;
+        -moz-animation-timing-function: ease-in;
+    }
+    8% {
+        opacity: 1;
+        -moz-animation-timing-function: ease-out;
+    }
+    17% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-o-keyframes imageAnimation {
+    0% {
+        opacity: 0;
+        -o-animation-timing-function: ease-in;
+    }
+    8% {
+        opacity: 1;
+        -o-animation-timing-function: ease-out;
+    }
+    17% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-ms-keyframes imageAnimation {
+    0% {
+        opacity: 0;
+        -ms-animation-timing-function: ease-in;
+    }
+    8% {
+        opacity: 1;
+        -ms-animation-timing-function: ease-out;
+    }
+    17% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes imageAnimation {
+    0% {
+        opacity: 0;
+        animation-timing-function: ease-in;
+    }
+    8% {
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+    17% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.index_word {
+    color: #fff;
+    position: absolute;
+    top: 30%;
+    left: 9.7%;
+    max-width: 672px;
+    z-index: 999999;
+}
+
+.index_word h1 {
+    font-size: 36px;
+}
+
+.index_word_c {
+    width: 550px;
+    font-size: 14px;
+    line-height: 34px;
+}
+
+.index_word_d {
+    margin-top: 50px;
+}
+
+.index_word_d a {
+    font-size: 14px;
+    color: #fff;
+}
+
+.index_word_d a span {
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+    @apply bg-red-600
+}
+
+.index_word_d a span:hover {
+    @apply bg-orange-600
+}
+
+.index_word_d a .index_more {
+    width: 115px;
+    text-align: center;
+    margin-right: 3px;
+}
+
+.index_word_d a .index_more_icon {
+    padding: 0 9px;
+}
+
+.main_index_a .cb-slideshow li span {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    -webkit-backface-visibility: hidden;
+    -webkit-animation: imageAnimation 36s linear infinite 0s;
+    -moz-animation: imageAnimation 36s linear infinite 0s;
+    -o-animation: imageAnimation 36s linear infinite 0s;
+    -ms-animation: imageAnimation 36s linear infinite 0s;
+    animation: imageAnimation 36s linear infinite 0s;
+}
+
+.main_index_a .cb-slideshow li:nth-child(1) span {
+    background-image: url("images/banner-1.jpg");
+}
+
+.main_index_a .cb-slideshow li:nth-child(2) span {
+    background-image: url("images/banner-2.jpg");
+    -webkit-animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -o-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    animation-delay: 6s;
+}
+
+.main_index_a .cb-slideshow li:nth-child(3) span {
+    background-image: url("images/banner-3.jpg");
+    -webkit-animation-delay: 12s;
+    -moz-animation-delay: 12s;
+    -o-animation-delay: 12s;
+    -ms-animation-delay: 12s;
+    animation-delay: 12s;
+}
+
+.main_index_a .cb-slideshow li:nth-child(4) span {
+    background-image: url("images/banner-4.jpg");
+    -webkit-animation-delay: 18s;
+    -moz-animation-delay: 18s;
+    -o-animation-delay: 18s;
+    -ms-animation-delay: 18s;
+    animation-delay: 18s;
+}
+
+.main_index_a .cb-slideshow li:nth-child(5) span {
+    background-image: url("images/banner-5.jpg");
+    -webkit-animation-delay: 24s;
+    -moz-animation-delay: 24s;
+    -o-animation-delay: 24s;
+    -ms-animation-delay: 24s;
+    animation-delay: 24s;
+}
+
+.main_index_a .cb-slideshow li:nth-child(6) span {
+    background-image: url("images/banner-6.jpg");
+    -webkit-animation-delay: 30s;
+    -moz-animation-delay: 30s;
+    -o-animation-delay: 30s;
+    -ms-animation-delay: 30s;
+    animation-delay: 30s;
+}
+
+.main_index_b .cb-slideshow li span {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    -webkit-backface-visibility: hidden;
+    -webkit-animation: imageAnimation 36s linear infinite 0s;
+    -moz-animation: imageAnimation 36s linear infinite 0s;
+    -o-animation: imageAnimation 36s linear infinite 0s;
+    -ms-animation: imageAnimation 36s linear infinite 0s;
+    animation: imageAnimation 36s linear infinite 0s;
+}
+
+.main_index_b .cb-slideshow li:nth-child(1) span {
+    background-image: url("images/banner-1.jpg");
+}
+
+.main_index_b .cb-slideshow li:nth-child(2) span {
+    background-image: url("images/banner-2.jpg");
+    -webkit-animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -o-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    animation-delay: 6s;
+}
+
+.main_index_b .cb-slideshow li:nth-child(3) span {
+    background-image: url("images/banner-3.jpg");
+    -webkit-animation-delay: 12s;
+    -moz-animation-delay: 12s;
+    -o-animation-delay: 12s;
+    -ms-animation-delay: 12s;
+    animation-delay: 12s;
+}
+
+.main_index_b .cb-slideshow li:nth-child(4) span {
+    background-image: url("images/banner-4.jpg");
+    -webkit-animation-delay: 18s;
+    -moz-animation-delay: 18s;
+    -o-animation-delay: 18s;
+    -ms-animation-delay: 18s;
+    animation-delay: 18s;
+}
+
+.main_index_b .cb-slideshow li:nth-child(5) span {
+    background-image: url("images/banner-5.jpg");
+    -webkit-animation-delay: 24s;
+    -moz-animation-delay: 24s;
+    -o-animation-delay: 24s;
+    -ms-animation-delay: 24s;
+    animation-delay: 24s;
+}
+
+.main_index_b .cb-slideshow li:nth-child(6) span {
+    background-image: url("images/banner-6.jpg");
+    -webkit-animation-delay: 30s;
+    -moz-animation-delay: 30s;
+    -o-animation-delay: 30s;
+    -ms-animation-delay: 30s;
+    animation-delay: 30s;
+}
+
+.main_index_b .index_group {
+    width: 90%;
+    margin: 0 auto;
+    z-index: -10;
+}
+
+.main_index_b .index_group ul li {
+    width: 25%;
+    float: left;
+    position: relative;
+    z-index: 111;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.main_index_b .index_group ul li:hover .index_group_b {
+    background: transparent;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.main_index .main_index_b .index_group ul li img {
+    width: 100%;
+}
+
+.main_index_b .index_group ul li .index_group_b {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 111;
+    background: rgba(0, 0, 0, 0.4);
+    filter: progid: DXImageTransform.Microsoft.gradient(startcolorstr=#66000000, endcolorstr=#66000000);
+    text-align: center;
+    color: #fff;
+    padding-top: 30%;
+}
+
+.main_index_b .index_group ul li .index_group_b .index_group_txt {
+    font-size: 24px;
+    margin-bottom: 2%;
+}
+
+.main_index_b .index_group ul li .index_group_b .index_group_txt_a {
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.index_mouse {
+    position: absolute;
+    bottom: 10%;
+    right: 9.7%;
+    z-index: 111111;
+    width: 60px;
+    height: 30px;
+    border: 2px solid transparent;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 20px;
+}
+
+.index_mouse:hover {
+    border: 2px solid #fff;
+    -webkit-transform: translateX(10px);
+    -moz-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    -o-transform: translateX(10px);
+    transform: translateX(10px);
+}
+
+.index_mouse .bullet-active {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.index_mouse .swiper-pagination-bullet {
+    width: 15px;
+    height: 3px;
+    background: #fff;
+    border-radius: 20px;
+    margin-left: 9px;
+    opacity: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.index_mouse .swiper-pagination-bullet-active {
+    opacity: 1;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.index_mouse img {
+    width: 85%;
+    position: relative;
+    top: -10px;
+    cursor: pointer;
+    left: 6px;
+}
+
+
+.btn-start {
+    @apply py-2 px-6 bg-indigo-600  rounded-lg text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md 
+}
+
+.btn-start:hover {
+    @apply bg-indigo-700 
+}
+
+.btn-start:focus {
+    @apply ring-indigo-500 ring-offset-indigo-200 ring-2 ring-offset-2 outline-none
+}
+
+.home-banner {
+    @apply block object-cover object-center w-full h-full rounded-lg 
+}
+
+.home-hero-content {
+    @apply px-5 py-5 mx-auto lg:pt-6 lg:px-32
+}
+
+.home-hero-figure {
+    @apply flex flex-wrap -m-1 md:-m-2
+}
+
+.home-hero-inner {
+    @apply flex flex-wrap w-1/3
+}
+
+.home-hero-image-w {
+    @apply hover:bg-gray-500 w-full p-1 md:p-2
+}
