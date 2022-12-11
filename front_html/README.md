@@ -4,7 +4,7 @@
 ## Step1. 初始化项目
 
 ```javascript
-mkdir multiple-htmlpages && cd multiple-htmlpages
+mkdir front_html && cd front_html
 
 yarn init
 
@@ -142,10 +142,10 @@ module.exports = {
         filename: 'about.html'
     }),
     new HtmlWebpackPlugin({
-        template: './src/contacts.html',
+        template: './src/contact.html',
         inject: true,
-        chunks: ['contacts'],
-        filename: 'contacts.html'
+        chunks: ['contact'],
+        filename: 'contact.html'
     })
   ]
 };
@@ -155,18 +155,52 @@ module.exports = {
 ## Step4. 添加CSS
 
 ```javascript
-yarn add normalize.css
+yarn add -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+```
+
+
+### 在项目目录下postcss.config.js添加以下内容
+```javascript
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  }
+}
 
 ```
+
+### 在项目目录下tailwind.config.js添加配置
+```javascript
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{html,js}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+###  在src目录下新建main.css文件，添加tailwind的内容
+```javascript
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+```
+
 
 ```javascript
 //index.js、about.js、contacts.js 中，顶部添加
-import 'normalize.css/normalize.css';
+import 'main.css';
 
 ```
 
+
 ```javascript
-yarn add -D css-loader style-loader
+yarn add -D css-loader style-loader postcss-loader
 
 ```
 
@@ -184,7 +218,8 @@ module.exports = {
               test: /\.css$/,
               use: [
                   'style-loader',
-                  'css-loader'
+                  'css-loader',
+                  'postcss-loader'
               ]
           }
       ]
