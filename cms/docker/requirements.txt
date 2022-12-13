@@ -1,0 +1,14 @@
+Flask==2.2.2
+click==8.1.3
+PyMySQL==1.0.2
+Flask-Script
+Flask-Assets
+Flask-SQLAlchemy
+flask-login
+flask-debugtoolbar
+requests
+sqlacodegen
+flask-sqlacodegen
+uwsgi
+validators
+Werkzeug==2.2.2

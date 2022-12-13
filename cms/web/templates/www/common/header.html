@@ -1,0 +1,28 @@
+    <div class="header">
+        <section class="header-wrapper">
+            <nav class="header-nav">
+                <div class="header-main-nav"><a class="header-logo" href="/"><img class="h-9" src="/static/assets/images/logo.png" alt="logo"> <span>西大健身</span></a>
+                    <ul class="nav-bar">
+                        <li class="nav-item"><a class="nav-link" href="/">主页</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/action/">健身动作库</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/course/">特色课程</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/food/">饮食查询</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/tools/">健身工具</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/guestbook/">留言板</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/about.html">联系我们</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contact.html">联系我们</a></li>
+                    </ul>
+                    <div class="nav-item-group">
+                        {% if current_user.is_anonymous %}
+                        <a class="nav-item-1" href="/user/sign-in.html">登陆</a> | <a class="nav-item-1" href="/user/sign-up.html">注册</a>
+                        {% else  %}
+                        <a class="nav-item-1" href="/account/profile.html">我的账号</a> | <a class="nav-item-1" href="/user/logout">退出</a>
+                        {% endif %}
+                    </div>
+                    <a class="nav-toggle navbar-burger" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    </a>
+                </div>
+            </nav>
+        </section>
+    </div>

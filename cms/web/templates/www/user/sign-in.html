@@ -1,0 +1,131 @@
+    {% extends "www/common/layout.html" %}
+
+{% block js %}
+    <script src="{{ GlobalUrlService.buildWWWStaticUrl('/assets/js/alpine.js') }}"></script>
+    <script src="{{ GlobalUrlService.buildWWWStaticUrl('/assets/js/iodine.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+     <div class="section">
+        <nav class="breadcrumbs">
+            <ol class="breadcrumb-list">
+                <li><a href="#" class="breadcrumb-home">主页</a></li>
+                <li><span class="breadcrumb-item">/</span></li>
+                <li class="breadcrumb-current">登陆</li>
+            </ol>
+        </nav>
+        <div class="form-container">
+            <div class="form-wrapper">
+                <h2 class="page-subtitle">登录用户中心</h2>
+               {% with messages = get_flashed_messages() %}
+                   {% if messages[0] %}
+                    <div class="alert-container">
+                            <div class="alert-error">
+                                {{ messages[0] }}
+                            </div>
+                    </div>
+                   {% endif %}
+                {% endwith %}
+
+                 <form name="form" x-data="checkform()" x-init="init()" @focusout="change" @input="change" @submit="submit" id="messge-form" method="post">
+                    <div class="form-inner"><label for="username" class="label">用户名</label> <input class="form-input" name="username" id="username" placeholder="用户名或电子邮箱地址" autocomplete="given-name" class="input" x-bind:class="{'invalid':username.errorMessage}" data-rules='["required"]' data-server-errors="[]" />
+                        <p class="error-message" x-transition.in="username.errorMessage" x-text="username.errorMessage"></p>
+                    </div>
+                    <div class="form-inner"><label for="password" class="label">密码</label> <input class="form-input" type="password" name="password" id="password" autocomplete="password" class="input" x-bind:class="{'invalid':password.errorMessage}" data-rules='["required","minimum:6"]' data-server-errors="[]" />
+                        <p class="error-message" x-transition.in="password.errorMessage" x-text="password.errorMessage"></p>
+                    </div>
+                    <div class="form-action"><button type="submit" class="button-primary">登陆</button></div>
+                    <div class="form-action-info"><a href="forgot.html" class="form-b-link">忘记密码?</a> 或 <a href="sign-up.html" class="form-b-link">注册新账号</a></div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+     <script>
+    window.checkform = function() {
+        return {
+            inputElements: [],
+            init: function() {
+                this.inputElements = [
+                    ...this.$el.querySelectorAll("input[data-rules]"),
+                ];
+                this.initDomData();
+                this.updateErrorMessages();
+            },
+            initDomData: function() {
+                //Create an object attached to the component state for each input element to store its state
+                this.inputElements.map((ele) => {
+                    this[ele.name] = {
+                        serverErrors: JSON.parse(ele.dataset.serverErrors),
+                        blurred: false,
+                    };
+                });
+            },
+            updateErrorMessages: function() {
+                //map throught the input elements and set the 'errorMessage'
+                this.inputElements.map((ele) => {
+                    this[ele.name].errorMessage = this.getErrorMessage(ele);
+                });
+            },
+            getErrorMessage: function(ele) {
+                //Return any server errors if they're present
+                const input = this[ele.name];
+
+                if (window.Iodine === undefined) {
+                    return
+                }
+
+                if (input.serverErrors.length > 0) {
+                    return input.serverErrors[0];
+                }
+
+                //Check using iodine and return the error message only if the element has not been blurred
+                const error = Iodine.is(ele.value, JSON.parse(ele.dataset.rules));
+                if (error !== true && this[ele.name].blurred) {
+                    return Iodine.getErrorMessage(error);
+                }
+                //return empty string if there are no errors
+                return "";
+            },
+            submit: function(event) {
+                const invalidElements = this.inputElements.filter((input) => {
+                    return (
+                        Iodine.is(input.value, JSON.parse(input.dataset.rules)) !==
+                        true
+                    );
+                });
+                if (invalidElements.length > 0) {
+                    event.preventDefault();
+                    document.getElementById(invalidElements[0].id).scrollIntoView();
+                    //We set all the inputs as blurred if the form has been submitted
+                    this.inputElements.map((input) => {
+                        this[input.name].blurred = true;
+                    });
+                    //And update the error messages.
+                    this.updateErrorMessages();
+                }
+            },
+            change: function(event) {
+                //Ignore all events that aren't coming from the inputs we're watching
+                if (!this[event.target.name]) {
+                    return false;
+                }
+                if (event.type === "input") {
+                    this[event.target.name].serverErrors = [];
+                }
+
+                if (event.type === "textarea") {
+                    this[event.target.name].serverErrors = [];
+                }
+
+                if (event.type === "focusout") {
+                    this[event.target.name].blurred = true;
+                }
+                //Whether blurred or on input, we update the error messages
+                this.updateErrorMessages();
+            },
+        };
+    };
+    </script>
+{% endblock %}

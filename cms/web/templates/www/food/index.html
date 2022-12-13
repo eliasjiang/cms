@@ -1,0 +1,102 @@
+    {% extends "www/common/layout.html" %}
+
+
+{% block content %}
+     <div class="section">
+        <nav class="breadcrumbs">
+            <ol class="breadcrumb-list">
+                <li><a href="#" class="breadcrumb-home">主页</a></li>
+                <li><span class="breadcrumb-item">/</span></li>
+                <li class="breadcrumb-current">食品搜索</li>
+            </ol>
+        </nav>
+        <div class="search-container" style="background-image: url(/static/assets/images/food-search-bg.jpg);">
+            <h1 class="search-title">专业全面的食物数据库</h1>
+            <div class="search-wrapper">
+                <div class="search-inner">
+                    <div class="search-bar"><svg xmlns="http://www.w3.org/2000/svg" class="search-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg></div><input autocomplete="false" class="search-input" id="search" placeholder="搜索食物..." /> <button class="food-search-btn" type="button">搜索</button>
+                </div>
+            </div>
+        </div>
+        <div class="tools-page">
+            <div class="page-title">
+                <h2>常见食物分类</h2>
+            </div>
+            <div class="tools-container">
+                <div class="tools-list">
+                    <div class="tool-item"><a href="#">
+                            <div class="food-img"><img src="http://static.ouj.com/hiyd_home/714c4ea0bbed42cfb98a4e4128010832.png" alt=""></div>
+                            <h3 class="group_name">谷薯芋、杂豆、主食</h3>
+                            <p class="eg_foods">米饭，玉米(鲜)，馒头，燕麦片，面包</p><span class="food-more" href="#">更多的...</span>
+                        </a></div>
+                    <div class="tool-item"><a href="#">
+                            <div class="food-img"><img src="http://static.ouj.com/hiyd_home/473376dd33b04b1eb017fb4078ffaa34.png" alt=""></div>
+                            <h3 class="group_name">蛋类、肉类及制品</h3>
+                            <p class="eg_foods">鸡蛋，猪肉(瘦)，鸡蛋（煮），鸡，火腿肠</p><span class="food-more" href="#">更多的...</span>
+                        </a></div>
+                    <div class="tool-item"><a href="#">
+                            <div class="food-img"><img src="http://static.ouj.com/hiyd_home/e148de440d51482ea73d8858b23c56e6.png" alt=""></div>
+                            <h3 class="group_name">奶类及制品</h3>
+                            <p class="eg_foods">酸奶，牛奶，酸奶(中脂)，酸奶(脱脂)，牛奶（伊利牌）</p><span class="food-more" href="#">更多的...</span>
+                        </a></div>
+                    <div class="tool-item"><a href="#">
+                            <div class="food-img"><img src="http://static.ouj.com/hiyd_home/af8e5fc248de43a68ad4ee30140ca66b.png" alt=""></div>
+                            <h3 class="group_name">蔬果和菌藻</h3>
+                            <p class="eg_foods">苹果，香蕉，番茄，黄瓜，西瓜</p><span class="food-more" href="#">更多的...</span>
+                        </a></div>
+                    <div class="tool-item"><a href="#">
+                            <div class="food-img"><img src="http://static.ouj.com/hiyd_home/af8e5fc248de43a68ad4ee30140ca66b.png" alt=""></div>
+                            <h3 class="group_name">蔬果和菌藻</h3>
+                            <p class="eg_foods">苹果，香蕉，番茄，黄瓜，西瓜</p><span class="food-more" href="#">更多的...</span>
+                        </a></div>
+                    <div class="tool-item"><a href="#">
+                            <div class="food-img"><img src="http://static.ouj.com/hiyd_home/af8e5fc248de43a68ad4ee30140ca66b.png" alt=""></div>
+                            <h3 class="group_name">蔬果和菌藻</h3>
+                            <p class="eg_foods">苹果，香蕉，番茄，黄瓜，西瓜</p><span class="food-more" href="#">更多的...</span>
+                        </a></div>
+                    <div class="tool-item"><a href="#">
+                            <div class="food-img"><img src="http://static.ouj.com/hiyd_home/af8e5fc248de43a68ad4ee30140ca66b.png" alt=""></div>
+                            <h3 class="group_name">蔬果和菌藻</h3>
+                            <p class="eg_foods">苹果，香蕉，番茄，黄瓜，西瓜</p><span class="food-more" href="#">更多的...</span>
+                        </a></div>
+                    <div class="tool-item"><a href="#">
+                            <div class="food-img"><img src="http://static.ouj.com/hiyd_home/5f7d07fa4ec1402bb0e1515c4cda4718.png" alt=""></div>
+                            <h3 class="group_name">坚果、大豆及制品</h3>
+                            <p class="eg_foods">豆浆，豆浆（甜），豆腐，核桃(干)，豆腐(南)</p><span class="food-more" href="#">更多的...</span>
+                        </a></div>
+                    <div class="tool-item"><a href="#">
+                            <div class="food-img"><img src="http://static.ouj.com/hiyd_home/689a4ec64d57413cafefa7b0adb927a3.png" alt=""></div>
+                            <h3 class="group_name">饮料</h3>
+                            <p class="eg_foods">薄荷 玉米须茶，雀巢咖啡MIX【韩文版】，咖啡粉，麦斯威尔原味咖啡，黑咖啡</p><span class="food-more" href="#">更多的...</span>
+                        </a></div>
+                    <div class="tool-item"><a href="#">
+                            <div class="food-img"><img src="http://static.ouj.com/hiyd_home/ec9e67578b4d4bf8812b267af8ee763c.png" alt=""></div>
+                            <h3 class="group_name">食用油、油脂及制品</h3>
+                            <p class="eg_foods">色拉油，花生油，豆油，混合油(菜+棕)，葵花籽油</p><span class="food-more" href="#">更多的...</span>
+                        </a></div>
+                    <div class="tool-item"><a href="#">
+                            <div class="food-img"><img src="http://static.ouj.com/hiyd_home/022b78c8fa194f9e98e496973f3aa132.png" alt=""></div>
+                            <h3 class="group_name">调味品</h3>
+                            <p class="eg_foods">蜂蜜，蜂蜜（槐花），红糖，榨菜，白砂糖</p><span class="food-more" href="#">更多的...</span>
+                        </a></div>
+                    <div class="tool-item"><a href="#">
+                            <div class="food-img"><img src="http://static.ouj.com/hiyd_home/0c538bc22f664e119e39a252afecaf26.png" alt=""></div>
+                            <h3 class="group_name">零食、点心、冷饮</h3>
+                            <p class="eg_foods">饼干，蛋糕(黄蛋糕)，薄荷松仁粽子糖，巧克力，冰淇淋</p><span class="food-more" href="#">更多的...</span>
+                        </a></div>
+                    <div class="tool-item"><a href="#">
+                            <div class="food-img"><img src="http://static.ouj.com/hiyd_home/4808190f831f40eea046178ee01ee914.png" alt=""></div>
+                            <h3 class="group_name">其它</h3>
+                            <p class="eg_foods">枸杞子，绿芙蓉龟苓膏（罐装），油面筋，陈皮，栝楼根粉</p><span class="food-more" href="#">更多的...</span>
+                        </a></div>
+                    <div class="tool-item"><a href="#">
+                            <div class="food-img"><img src="http://static.ouj.com/hiyd_home/a3026f69aaa34047b6c1e1d4aa3fbea6.png" alt=""></div>
+                            <h3 class="group_name">菜肴</h3>
+                            <p class="eg_foods">炒空心菜，绿豆汤，素炒小白菜，蜂蜜柠檬水，烧茄子</p><span class="food-more" href="#">更多的...</span>
+                        </a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

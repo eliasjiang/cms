@@ -1,0 +1,132 @@
+    {% extends "www/common/layout.html" %}
+
+
+
+{% block js %}
+    <script src="{{ GlobalUrlService.buildWWWStaticUrl('/assets/js/alpine.js') }}"></script>
+    <script src="{{ GlobalUrlService.buildWWWStaticUrl('/assets/js/iodine.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="section-full"><img class="banner-image" src="/static/assets/images/contact.jpg" /></div>
+    <div class="section">
+        <nav class="breadcrumbs">
+            <ol class="breadcrumb-list">
+                <li><a href="#" class="breadcrumb-home">主页</a></li>
+                <li><span class="breadcrumb-item">/</span></li>
+                <li class="breadcrumb-current">联系我们</li>
+            </ol>
+        </nav>
+        <div class="form-container">
+            <div class="form-wrapper">
+                <h2 class="page-subtitle">留言板</h2>
+                <p class="form-info">如果你有关于我们产品任何疑问，请填写如下表格，我们会尽快联系你。欢迎客户光临我公司垂询！</p>
+                <form name="form" x-data="checkform()" x-init="init()" @focusout="change" @input="change" @submit="submit" id="messge-form" action="/guestbook/post" method="post">
+                    <div class="form-inner"><label for="name" class="form-label">姓名</label> <input autocomplete="false" id="name" name="name" x-bind:class="{'invalid':name.errorMessage}" data-rules='["required"]' data-server-errors="[]" class="form-input" />
+                        <p class="error-message" x-transition.in="name.errorMessage" x-text="name.errorMessage"></p>
+                    </div>
+                    <div class="form-inner"><label for="email" class="form-label">电子邮箱</label> <input type="email" autocomplete="false" id="email" name="email" x-bind:class="{'invalid':email.errorMessage}" data-rules='["required","email"]' data-server-errors="[]" class="form-input" />
+                        <p class="error-message" x-transition.in="email.errorMessage" x-text="email.errorMessage"></p>
+                    </div>
+                    <div class="form-inner"><label for="subject" class="form-label">标题</label> <input autocomplete="false" id="subject" name="subject" x-bind:class="{'invalid':name.errorMessage}" data-rules='["required"]' data-server-errors="[]" class="form-input" />
+                        <p class="error-message" x-transition.in="subject.errorMessage" x-text="subject.errorMessage"></p>
+                    </div>
+                    <div class="form-inner"><label for="body" class="form-label">内容</label> <textarea id="body" autocomplete="false" name="body" x-bind:class="{'invalid':body.errorMessage}" data-rules='["required"]' data-server-errors="[]" class="form-textarea"></textarea>
+                        <p class="error-message" x-transition.in="body.errorMessage" x-text="body.errorMessage"></p>
+                    </div>
+                    <div class="form-action"><button type="submit" class="button-primary">提交</button></div>
+                    <p class="form-notice"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+    window.checkform = function() {
+        return {
+            inputElements: [],
+            init: function() {
+                this.inputElements = [
+                    ...this.$el.querySelectorAll("input[data-rules]"),
+                ];
+                this.initDomData();
+                this.updateErrorMessages();
+            },
+            initDomData: function() {
+                //Create an object attached to the component state for each input element to store its state
+                this.inputElements.map((ele) => {
+                    this[ele.name] = {
+                        serverErrors: JSON.parse(ele.dataset.serverErrors),
+                        blurred: false,
+                    };
+                });
+            },
+            updateErrorMessages: function() {
+                //map throught the input elements and set the 'errorMessage'
+                this.inputElements.map((ele) => {
+                    this[ele.name].errorMessage = this.getErrorMessage(ele);
+                });
+            },
+            getErrorMessage: function(ele) {
+                //Return any server errors if they're present
+                const input = this[ele.name];
+
+                if (window.Iodine === undefined) {
+                    return
+                }
+
+                if (input.serverErrors.length > 0) {
+                    return input.serverErrors[0];
+                }
+
+                //Check using iodine and return the error message only if the element has not been blurred
+                const error = Iodine.is(ele.value, JSON.parse(ele.dataset.rules));
+                if (error !== true && this[ele.name].blurred) {
+                    return Iodine.getErrorMessage(error);
+                }
+                //return empty string if there are no errors
+                return "";
+            },
+            submit: function(event) {
+                const invalidElements = this.inputElements.filter((input) => {
+                    return (
+                        Iodine.is(input.value, JSON.parse(input.dataset.rules)) !==
+                        true
+                    );
+                });
+                if (invalidElements.length > 0) {
+                    event.preventDefault();
+                    document.getElementById(invalidElements[0].id).scrollIntoView();
+                    //We set all the inputs as blurred if the form has been submitted
+                    this.inputElements.map((input) => {
+                        this[input.name].blurred = true;
+                    });
+                    //And update the error messages.
+                    this.updateErrorMessages();
+                }
+            },
+            change: function(event) {
+                //Ignore all events that aren't coming from the inputs we're watching
+                if (!this[event.target.name]) {
+                    return false;
+                }
+                if (event.type === "input") {
+                    this[event.target.name].serverErrors = [];
+                }
+
+                if (event.type === "textarea") {
+                    this[event.target.name].serverErrors = [];
+                }
+
+                if (event.type === "focusout") {
+                    this[event.target.name].blurred = true;
+                }
+                //Whether blurred or on input, we update the error messages
+                this.updateErrorMessages();
+            },
+        };
+    };
+    </script>
+{% endblock %}
+
+
+

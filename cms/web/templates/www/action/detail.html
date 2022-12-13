@@ -1,0 +1,22 @@
+
+{% extends "www/common/layout.html" %}
+
+
+{% block content %}
+<div class="section">
+        <nav class="breadcrumbs">
+            <ol class="breadcrumb-list">
+                <li><a href="#" class="breadcrumb-home">主页</a></li>
+                <li><span class="breadcrumb-item">/</span></li>
+                <li class="breadcrumb-current">动作详情</li>
+            </ol>
+        </nav>
+        <div class="action-detail-page">
+            <div class="page-title">
+                <h2>动作视频</h2>
+            </div>
+            <div class="video-inner" style="padding-top: 56.25%"><iframe class="video-frame" src="https://player.bilibili.com/player.html?aid=520850184&bvid=BV1AM411r7z3&cid=912947525&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+            <div class="my-10">详情</div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,199 @@
+{% extends "www/common/layout.html" %}
+
+{% block js %}
+    <script src="{{ GlobalUrlService.buildWWWStaticUrl('/assets/js/alpine.js') }}"></script>
+    <script src="{{ GlobalUrlService.buildWWWStaticUrl('/assets/js/iodine.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <nav class="breadcrumbs">
+            <ol class="breadcrumb-list">
+                <li><a href="#" class="breadcrumb-home">主页</a></li>
+                <li><span class="breadcrumb-item">/</span></li>
+                <li class="breadcrumb-current">个人中心</li>
+            </ol>
+        </nav>
+        <div class="section_profile">
+            <div class="profile_wrap">
+                <nav class="profile_menu">
+                    <ul class="profile_submenu">
+                        <li><a href="profile.html" class="active"><i class="iconfont icon-profile"></i> 我的信息</a></li>
+                        <li><a href="subscription.html" class=""><i class="iconfont icon-zhanghaoguanli"></i> 我的课程</a>
+                        </li>
+                        <li><a href="password.html" class=""><i class="iconfont icon-yingyongbeifen"></i> 更改密码</a></li>
+                        <li><a href="favorite.html" class=""><i class="iconfont icon-dizhi"></i> 我的收藏</a></li>
+                    </ul>
+                </nav>
+                <div class="profile_content">
+                    <div class="form-wrapper-1">
+                        <h1 class="my-4 text-xl">个人信息</h1>
+                        <p class="text-sm text-gray-400 italic">带 * 的栏是必须填写的</p>
+                         {% with messages = get_flashed_messages() %}
+                           {% if messages[0] %}
+                            <div class="alert-container">
+                                    <div class="alert-error">
+                                        {{ messages[0] }}
+                                    </div>
+                            </div>
+                           {% endif %}
+                        {% endwith %}
+                        <form method="post" x-data="checkform()" x-init="init()" @focusout="change" @input="change" @submit="submit">
+                            <div class="form-inner"><label for="username" class="label">用户名</label> <input
+                                    name="username" id="username" placeholder="用户名" autocomplete="given-name"
+                                    class="form-input" class="form-input" value="{{ customer.username }}"
+                                    x-bind:class="{'invalid':username.errorMessage}" data-rules='["required"]'
+                                    data-server-errors="[]"/>
+                                <p class="error-message" x-transition.in="username.errorMessage"
+                                   x-text="username.errorMessage"></p>
+                            </div>
+                            <div class="form-inner">
+                                <label for="name" class="">姓名</label>
+                                <input name="name" id="name" class="form-input" value="{{ customer.name }}"/>
+                            </div>
+                            <div class="form-inner"><label for="company" class="">公司</label> <input name="company"
+                                                                                                    id="company"
+                                                                                                    class="form-input" value="{{ customer.username }}"/>
+                            </div>
+                            <div class="form-inner"><label for="email" class="">电子邮箱</label> <input name="email"
+                                                                                                    id="email"
+                                                                                                    class="form-input" value="{{ customer.email }}"
+                                                                                                    x-bind:class="{'invalid':email.erroMessage}"
+                                                                                                    data-rules='["required","email"]'
+                                                                                                    data-server-errors="[]"/>
+                                <p class="error-message" x-transition.in="email.errorMessage"
+                                   x-text="email.errorMessage"></p>
+                            </div>
+
+                            <div class="form-inner"><label for="mobile" class="">手机</label> <input name="mobile"
+                                                                                                   id="mobile"
+                                                                                                   class="form-input" value="{{ customer.mobile }}"
+                                                                                                   x-bind:class="{'invalid':mobile.errorMessage}"
+                                                                                                   data-rules='["required"]'
+                                                                                                   data-server-errors="[]"/>
+                                <p class="error-message" x-transition.in="mobile.errorMessage"
+                                   x-text="mobile.errorMessage"></p>
+                            </div>
+                            <div class="form-inner"><label for="province" class="">省</label> <input name="province"
+                                                                                                    id="province"
+                                                                                                    class="form-input" value="{{ customer.province }}"
+                                                                                                    x-bind:class="{'invalid':address.errorMessage}"
+                                                                                                    data-rules='["required"]'
+                                                                                                    data-server-errors="[]"/>
+                                <p class="error-message" x-transition.in="address.errorMessage"
+                                   x-text="address.errorMessage"></p>
+                            </div>
+                            <div class="form-inner"><label for="city" class="">城市</label> <input name="city" id="city"
+                                                                                                 class="form-input" value="{{ customer.city }}"
+                                                                                                 x-bind:class="{'invalid':city.errorMessage}"
+                                                                                                 data-rules='["required"]'
+                                                                                                 data-server-errors="[]"/>
+                                <p class="error-message" x-transition.in="city.errorMessage"
+                                   x-text="city.errorMessage"></p>
+                            </div>
+                            <div class="form-inner"><label for="address" class="">地址</label> <input name="address"
+                                                                                                    id="address"
+                                                                                                    class="form-input" value="{{ customer.address }}"
+                                                                                                    x-bind:class="{'invalid':address.errorMessage}"
+                                                                                                    data-rules='["required"]'
+                                                                                                    data-server-errors="[]"/>
+                                <p class="error-message" x-transition.in="address.errorMessage"
+                                   x-text="address.errorMessage"></p>
+                            </div>
+                            <div class="form-action-1">
+                                <button type="submit" class="button-primary">提交</button>
+                                <button type="reset" class="button-secondary">取消</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        window.checkform = function () {
+            return {
+                inputElements: [],
+                init: function () {
+                    this.inputElements = [
+                        ...this.$el.querySelectorAll("input[data-rules]"),
+                    ];
+                    this.initDomData();
+                    this.updateErrorMessages();
+                },
+                initDomData: function () {
+                    //Create an object attached to the component state for each input element to store its state
+                    this.inputElements.map((ele) => {
+                        this[ele.name] = {
+                            serverErrors: JSON.parse(ele.dataset.serverErrors),
+                            blurred: false,
+                        };
+                    });
+                },
+                updateErrorMessages: function () {
+                    //map throught the input elements and set the 'errorMessage'
+                    this.inputElements.map((ele) => {
+                        this[ele.name].errorMessage = this.getErrorMessage(ele);
+                    });
+                },
+                getErrorMessage: function (ele) {
+                    //Return any server errors if they're present
+                    const input = this[ele.name];
+
+                    if (window.Iodine === undefined) {
+                        return
+                    }
+
+                    if (input.serverErrors.length > 0) {
+                        return input.serverErrors[0];
+                    }
+
+                    //Check using iodine and return the error message only if the element has not been blurred
+                    const error = Iodine.is(ele.value, JSON.parse(ele.dataset.rules));
+                    if (error !== true && this[ele.name].blurred) {
+                        return Iodine.getErrorMessage(error);
+                    }
+                    //return empty string if there are no errors
+                    return "";
+                },
+                submit: function (event) {
+                    const invalidElements = this.inputElements.filter((input) => {
+                        return (
+                            Iodine.is(input.value, JSON.parse(input.dataset.rules)) !==
+                            true
+                        );
+                    });
+                    if (invalidElements.length > 0) {
+                        event.preventDefault();
+                        document.getElementById(invalidElements[0].id).scrollIntoView();
+                        //We set all the inputs as blurred if the form has been submitted
+                        this.inputElements.map((input) => {
+                            this[input.name].blurred = true;
+                        });
+                        //And update the error messages.
+                        this.updateErrorMessages();
+                    }
+                },
+                change: function (event) {
+                    //Ignore all events that aren't coming from the inputs we're watching
+                    if (!this[event.target.name]) {
+                        return false;
+                    }
+                    if (event.type === "input") {
+                        this[event.target.name].serverErrors = [];
+                    }
+
+                    if (event.type === "textarea") {
+                        this[event.target.name].serverErrors = [];
+                    }
+
+                    if (event.type === "focusout") {
+                        this[event.target.name].blurred = true;
+                    }
+                    //Whether blurred or on input, we update the error messages
+                    this.updateErrorMessages();
+                },
+            };
+        };
+    </script>
+{% endblock %}

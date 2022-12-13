@@ -1,0 +1,61 @@
+{% extends "www/common/layout.html" %}
+
+
+{% block content %}
+    <section class="section">
+        <nav class="breadcrumbs">
+            <ol class="breadcrumb-list">
+                <li><a href="#" class="breadcrumb-home">主页</a></li>
+                <li><span class="breadcrumb-item">/</span></li>
+                <li class="breadcrumb-current">个人中心</li>
+            </ol>
+        </nav>
+        <div class="section_profile">
+             <div class="profile_wrap">
+                <nav class="profile_menu">
+                    <ul class="profile_submenu">
+                        <li><a href="profile.html"><i class="iconfont icon-profile"></i> 我的信息</a></li>
+                        <li><a href="subscription.html" class=""><i class="iconfont icon-zhanghaoguanli"></i> 我的课程</a>
+                        </li>
+                        <li><a href="password.html" class=""><i class="iconfont icon-yingyongbeifen"></i> 更改密码</a></li>
+                        <li><a href="favorite.html" class="active"><i class="iconfont icon-dizhi"></i> 我的收藏</a></li>
+                    </ul>
+                </nav>
+                <div class="profile_content">
+                    <div class="subscription-container">
+                        <div class="subscription-content">
+                            <div class="subscription-title">
+                                <h1 class="">我的收藏</h1>
+                            </div>
+                            <div class="course-list">
+                                <div class="course-card">
+                                    <div class="course-inner"><a href="/course/detail.html"><img class="course-card-image"
+                                                src="http://static.ouj.com/hiyd_cms/37168e8d960143ba93876aaa20ffd1c0.jpg?imageview/4/0/w/388/h/170/blur/0.98"
+                                                alt="" /></a>
+                                        <div class="course-card-info">
+                                            <h5 class="course-card-title">零基础全身激活</h5>
+                                            <p class="course-card-p">徒手训练</p>
+                                            <p class="course-card-s">全身</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="course-card">
+                                    <div class="course-inner"><a href="/course/detail.html"><img class="course-card-image"
+                                                src="http://static.ouj.com/hiyd_cms/37168e8d960143ba93876aaa20ffd1c0.jpg?imageview/4/0/w/388/h/170/blur/0.98"
+                                                alt="" /></a>
+                                        <div class="course-card-info">
+                                            <h5 class="course-card-title">零基础全身激活</h5>
+                                            <p class="course-card-p">徒手训练</p>
+                                            <p class="course-card-s">全身</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

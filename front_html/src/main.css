@@ -735,7 +735,7 @@ a.box-1 {
   @apply w-full flex flex-col justify-center;
 }
 
-.search-btn {
+.food-search-btn {
   @apply w-20  bg-red-500 text-white text-base rounded-lg px-3 py-1 mr-2 font-thin;
 }
 

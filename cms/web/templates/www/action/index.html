@@ -1,0 +1,214 @@
+
+{% extends "www/common/layout.html" %}
+
+
+{% block content %}
+
+
+<div class="section">
+        <nav class="breadcrumbs">
+            <ol class="breadcrumb-list">
+                <li><a href="#" class="breadcrumb-home">主页</a></li>
+                <li><span class="breadcrumb-item">/</span></li>
+                <li class="breadcrumb-current">健身动作库</li>
+            </ol>
+        </nav>
+        <div class="action-page">
+            <div class="left-bar">
+                <div class="left-search-wrapper">
+                    <div class="search-bar-con">
+                        <div class="left-search-inner">
+
+                                 <input type="search" class="search-in" placeholder="Search" aria-label="Search" aria-describedby="button-addon2"> <button class="search-btn" type="button" id="button-addon2"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+                                </svg></button></div>
+                    </div>
+                </div>
+                <h2>器械要求</h2>
+                <div class="menu-item-in"><a href="#" class="menu-item selected">不限器械</a> <a href="#" class="menu-item" title="徒手训练动作姿势图解">徒手训练 </a><a href="#" class="menu-item" title="双人训练动作姿势图解">双人训练 </a><a href="#" class="menu-item" title="其他器械动作姿势图解">其他器械</a></div>
+                <h2>自由器械</h2>
+                <div class="menu-item-in"><a href="#" class="menu-item" title="哑铃动作姿势图解">哑铃 </a><a href="#" class="menu-item" title="杠铃动作姿势图解">杠铃 </a><a href="#" class="menu-item" title="壶铃动作姿势图解">壶铃 </a><a href="#" class="menu-item" title="弹力带动作姿势图解">弹力带 </a><a href="#" class="menu-item" title="TRX绳动作姿势图解">TRX绳 </a><a href="#!" class="menu-item" title="战绳动作姿势图解">战绳 </a><a href="#!" class="menu-item" title="药球动作姿势图解">药球 </a><a href="#!" class="menu-item" title="瑞士球动作姿势图解">瑞士球 </a><a href="#!" class="menu-item" title="波速球动作姿势图解">波速球 </a><a href="#!" class="menu-item" title="泡沫轴动作姿势图解">泡沫轴</a></div>
+                <h2>固定器械</h2>
+                <div class="menu-item-in"><a href="#" class="menu-item" title="龙门架动作姿势图解">龙门架 </a><a href="#!" class="menu-item" title="史密斯机动作姿势图解">史密斯机 </a><a href="#" class="menu-item" title="推胸机动作姿势图解">推胸机 </a><a href="#" class="menu-item" title="悍马机动作姿势图解">悍马机 </a><a href="#" class="menu-item" title="夹胸器动作姿势图解">夹胸器 </a><a href="#" class="menu-item" title="划船机动作姿势图解">划船机 </a><a href="#" class="menu-item" title="下拉机动作姿势图解">下拉机 </a><a href="#" class="menu-item" title="地雷架动作姿势图解">地雷架 </a><a href="#" class="menu-item" title="推肩器动作姿势图解">推肩器 </a><a href="#" class="menu-item" title="倒蹬机动作姿势图解">倒蹬机 </a><a href="#" class="menu-item" title="哈克机动作姿势图解">哈克机 </a><a href="#" class="menu-item" title="腿弯举机动作姿势图解">腿弯举机 </a><a href="#" class="menu-item" title="腿屈伸机动作姿势图解">腿屈伸机 </a><a href="#" class="menu-item" title="提踵机动作姿势图解">提踵机 </a><a href="#" class="menu-item" title="单杠动作姿势图解">单杠 </a><a href="#" class="menu-item" title="双杠动作姿势图解">双杠 </a><a href="#" class="menu-item" title="仰卧板动作姿势图解">仰卧板 </a><a href="#" class="menu-item" title="罗马椅动作姿势图解">罗马椅 </a><a href="#" class="menu-item" title="牧师凳动作姿势图解">牧师凳 </a><a href="#!" class="menu-item" title="有氧器械动作姿势图解">有氧器械</a></div>
+            </div>
+            <div class="right-bar">
+                <div class="page-title">
+                    <h1 class="page-heading">全部动作</h1>
+                </div>
+                <div class="action-container">
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-card-inner"><a href="detail.html"><img src="https://static.ouj.com/hiyd_cms/exercise/23d35a28b3054812b9bcdc6195e1bc7c.jpg?imageview/2/0/w/361/blur/1" alt="胸椎稳定运动 R" /></a>
+                            <div class="action-info-box">
+                                <h5 class="action-title">坐姿交替收腿</h5>
+                                <p class="action-tag"><span>中级</span> <span>徒手训练</span> <span>腹部</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination-container">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">前一页</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">后一页</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

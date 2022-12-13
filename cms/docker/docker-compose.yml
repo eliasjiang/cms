@@ -1,0 +1,45 @@
+version: "3"
+services:
+  app:
+    build: ./
+    privileged: true
+    restart: always
+    working_dir: /app
+    ports:
+      - 8889:8889
+    command: ["python", "manage_web.py"]
+    environment:
+      - TZ=Asia/Shanghai
+      - FLASK_DEBUG=true
+    volumes:
+      - ../:/app
+      - ./local_setting.py:/app/config/local_setting.py
+    networks:
+      backend:
+        aliases:
+          - app
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./db:/etc/mysql/conf.d
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
+    ports:
+      - 3308:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=cms
+      - MYSQL_USER=cms
+      - MYSQL_PASSWORD=cms123
+
+    restart: always
+    privileged: true
+    networks:
+      backend:
+        aliases:
+          - db
+
+networks:
+  backend:
+    name: backend-network

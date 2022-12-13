@@ -1,0 +1,83 @@
+    {% extends "www/common/layout.html" %}
+
+
+{% block content %}
+    <div class="section">
+        <nav class="breadcrumbs">
+            <ol class="breadcrumb-list">
+                <li><a href="#" class="breadcrumb-home">主页</a></li>
+                <li><span class="breadcrumb-item">/</span></li>
+                <li class="breadcrumb-current">课程详细</li>
+            </ol>
+        </nav>
+        <div class="course-page">
+            <div class="course-title">
+                <h1>课程详细</h1>
+            </div>
+            <div class="course-container">
+                <div class="course-price-container">
+                    <div class="course-price-wrapper">
+                        <div class="course-base-inner">
+                            <h1 class="course-base-title">基础套餐</h1>
+                            <div class="text-center py-4 px-7">
+                                <h1 class="text-gray-700 text-4xl font-black">99.00</h1>
+                                <p class="text-gray-500 mt-2">月付</p>
+                            </div>
+                            <div class="h-px bg-gray-200"></div>
+                            <div class="text-center mt-3">
+                                <p class="text-sm text-gray-400">20人小班制，每周上两堂课，上课时间一般在周末或者周一到周五的下午</p>
+                            </div><button class="course-price-btn">马上购买</button>
+                        </div>
+                        <div class="course-recommend-inner">
+                            <h1 class="text-purple-200 font-semibold text-xl">高级套餐</h1>
+                            <div class="text-center py-4 px-7">
+                                <h1 class="text-white text-4xl font-black">199.00</h1>
+                                <p class="text-white text-opacity-50 mt-2">月付</p>
+                            </div>
+                            <div class="h-px bg-purple-400"></div>
+                            <div class="text-center mt-3">
+                                <p class="text-sm text-white text-opacity-80">5人小班制，教练可以自由选择，训练时间可以根据您的需要自由预约安排，每周5小时训练计划安排。</p>
+                            </div><button class="course-recommend-btn">马上预定</button>
+                        </div>
+                        <div class="course-price-pro-inner">
+                            <h1 class="course-base-title">私人定制</h1>
+                            <div class="text-center py-4 px-7">
+                                <h1 class="text-gray-700 text-4xl font-black">899.00</h1>
+                                <p class="text-gray-500 mt-2">月付</p>
+                            </div>
+                            <div class="h-px bg-gray-200"></div>
+                            <div class="text-center mt-3">
+                                <p class="text-sm text-gray-400">私人定制训练课程，教练可以自由选择，训练时间可以根据您的需要自由预约安排，每周20小时训练计划安排。</p>
+                            </div><button class="course-price-btn">马上购买</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-title my-10">
+                    <h2>课程视频</h2>
+                </div>
+                <div class="course-video-inner"><iframe class="course-video-frame" src="https://player.bilibili.com/player.html?aid=37347186&bvid=BV12t411D766&cid=176648119&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+                <div class="flex justify-center">
+                    <div class="flex flex-col justify-center items-center">
+                        <div class="flex flex-col md:flex-row max-w-7xl justify-center items-center">
+                            <div class="overflow-hidden w-2/3 m-4 flex justify-center">
+                                <div class="flex items-center justify-center">
+                                    <div class="items-center justify-center flex flex-col lg:flex-row">
+                                        <div class="flex items-center justify-around h-60 w-full lg:text-left text-center">
+                                            <div class="flex flex-col md:flex-row items-center"><img src="https://source.unsplash.com/100x100/?gym,man,boy" alt="" class="rounded-full" />
+                                                <div>
+                                                    <div class="font-bold text-gray-600 mx-4">John Doe</div>
+                                                    <div class="text-sm font-medium text-gray-500 hover:text-stone-500 mx-4"><a href="#">莱美认证教练员</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-gray-600 text-xl font-medium lg:text-left text-center">BODYCOMBAT能训练到你的腿部、手臂、背部和肩膀，对核心部位有显著效果。在课程中你能消耗卡路里、提高协调性、敏捷性和速度，感觉自己充满力量。</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><button onclick="window.location.href='/account/subscription';" class="bttn">我的课程</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
