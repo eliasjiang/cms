@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="{{ GlobalUrlService.buildWWWStaticUrl('/assets/css/style.css') }}" rel="stylesheet">
+    {%block css %}{% endblock %}
+  <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+
+{% include 'www/common/header.html' %}
+{% block content %}{% endblock %}
+{% include 'www/common/footer.html' %}
+
+{%block js %}{% endblock %}
+</body>
+</html>
