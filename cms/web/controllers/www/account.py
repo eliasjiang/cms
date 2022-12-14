@@ -41,6 +41,7 @@ def profile():
             "address": address,
 
         })
+        db.session.commit()
 
         flash('个人信息已经保存！')
 

@@ -6,27 +6,27 @@ from common.services.AppLogService import AppLogService
 
 @app.errorhandler(404) #捕获应用的异常
 def error_404(e):
-    err_msg = getErrMsg()
-    AppLogService.addErrLog(err_msg)
+    #err_msg = getErrMsg()
+    ##AppLogService.addErrLog(err_msg)
     return UtilHelper.renderView( "www/error/error.html",{ "status":404,"msg":"很抱歉！,您访问的页面不存在 ~~" } )
 
 @app.errorhandler(500) #捕获应用的异常
 def error_500(e):
-    err_msg = getErrMsg()
-    AppLogService.addErrLog(err_msg)
+    #err_msg = getErrMsg()
+    #AppLogService.addErrLog(err_msg)
     return UtilHelper.renderView("www/error/error.html",{ "status":500,"msg":"服务器错误" })
 
 @app.errorhandler(502) #捕获应用的异常
 def error_502(e):
-    err_msg = getErrMsg()
-    AppLogService.addErrLog(err_msg)
-    return UtilHelper.renderView("www/error/error.html")
+    #err_msg = getErrMsg()
+    #AppLogService.addErrLog(err_msg)
+    return UtilHelper.renderView("www/error/error.html",{ "status":502,"msg":"服务器错误" })
 
 
 @app.errorhandler(Exception)
 def error_exception( e ):
     err_msg = getErrMsg()
-    AppLogService.addErrLog( err_msg )
+    #AppLogService.addErrLog( err_msg )
     if UtilHelper.isAjax():
         return UtilHelper.renderErrJSON( "系统错误，错误原因:%s<br/>%s"%( str( e.__class__).replace("<",""),str( e ) ) )
 

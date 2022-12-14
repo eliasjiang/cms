@@ -9,6 +9,14 @@ from common.services.GlobalUrlService import GlobalUrlService
 
 route_www_user = Blueprint('www_user_page', __name__)
 
+"""
+ Customer.query.filter_by(username=email).update({
+                "password_hash": generate_password_hash("123456")
+            })
+            db.session.commit()
+
+"""
+
 @route_www_user.route("/sign-in.html",methods=["GET" ,"POST"])
 def sign_in():
 
