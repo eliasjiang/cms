@@ -17,8 +17,8 @@ sudo chmod +x run.sh
 #### 初次启动项目之后，需要手动执行以下命令导入数据库文件
 
 ```shell
-docker cp docker/init/db.sql docker_db_1
-docker exec -it docker_db_1  bash
+docker cp docker/init/db.sql docker-db-1:/
+docker exec -it docker-db-1  bash
 mysql -uroot -p
 ```
 

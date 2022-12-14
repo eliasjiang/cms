@@ -8,6 +8,7 @@ services:
     ports:
       - 8889:8889
     command: ["python", "manage_web.py"]
+    container_name: docker-app-1
     environment:
       - TZ=Asia/Shanghai
       - FLASK_DEBUG=true
@@ -25,6 +26,7 @@ services:
       - ./data:/var/lib/mysql
       - ./db:/etc/mysql/conf.d
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
+    container_name: docker-db-1
     ports:
       - 3308:3306
     environment:
